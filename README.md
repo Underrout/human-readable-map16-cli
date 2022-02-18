@@ -215,3 +215,5 @@ for tileset (group) specific tiles, as well as background pages, which all don't
 - All tiles in the foreground pages that are tilset (group) specific use the format with *only* acts like settings 
 - The `tileset_group_0.txt` file has a few more lines than the other tileset group files, since tileset group 0 has a few extra tileset group specific 
 tiles (the diagonal pipe tiles), the 8x8 tiles for all other tileset groups for these specific tiles are specified in the corresponding lines in `page_01.txt`
+- `~` symbol is a shorthand for Lunar Magic's empty map16 tile and can replace the full 16x16 tile format, as well as the 16x16 tile format without acts like settings
+(but not the one *with* acts like settings!)
