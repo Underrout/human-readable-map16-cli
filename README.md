@@ -217,3 +217,10 @@ for tileset (group) specific tiles, as well as background pages, which all don't
 tiles (the diagonal pipe tiles), the 8x8 tiles for all other tileset groups for these specific tiles are specified in the corresponding lines in `page_01.txt`
 - `~` symbol is a shorthand for Lunar Magic's empty map16 tile and can replace the full 16x16 tile format, as well as the 16x16 tile format without acts like settings
 (but not the one *with* acts like settings!)
+
+### Additional notes
+
+- Tiles must stay in the correct order, meaning their tile numbers must increase from top to bottom of every file
+- Page files within a directory are parsed in order of their hexadecimal number, going from lowest to highest
+- The program is very strict about whitespace and format in order to prevent any "artificial" changes to files, but it should give you detailed error messages if 
+you mess up the format on accident
