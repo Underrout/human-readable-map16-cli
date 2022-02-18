@@ -20,7 +20,7 @@ void from_map16(const fs::path input_map16, const fs::path output_directory) {
 		HumanReadableMap16::from_map16::convert(input_map16, output_directory);
 	}
 	catch (HumanMap16Exception& e) {
-		std::cerr << e.get_detailed_error_message();
+		std::cerr << e.get_detailed_error_message() << std::endl;
 		exit(1);
 	}
 	std::cout << input_map16 << " successfully converted to " << output_directory << std::endl;
@@ -31,7 +31,7 @@ void to_map16(const fs::path input_directory, const fs::path output_map16) {
 		HumanReadableMap16::to_map16::convert(input_directory, output_map16);
 	}
 	catch (HumanMap16Exception& e) {
-		std::cerr << e.get_detailed_error_message();
+		std::cerr << e.get_detailed_error_message() << std::endl;
 		exit(1);
 	}
 	std::cout << input_directory << " successfully converted to " << output_map16 << std::endl;
@@ -39,7 +39,7 @@ void to_map16(const fs::path input_directory, const fs::path output_map16) {
 
 void try_drag_and_drop(const fs::path potential_path) {
 	if (!fs::exists(potential_path)) {
-		std::cerr << "Path " << potential_path << " does not exist";
+		std::cerr << "Path " << potential_path << " does not exist" << std::endl;
 		exit(1);
 	}
 
