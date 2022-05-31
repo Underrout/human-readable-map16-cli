@@ -139,7 +139,7 @@ Generally, there should be no reason to edit this file by hand and most values a
 
 ### Text files
 
-All remaining files in the whole directory contain (mostly) the same kind of data. All lines in the various files (`page_00.txt`, `tileset_group_0.txt`, 
+All remaining files in the whole directory contain (mostly) the same kind of data. All non-blank lines in the various files (`page_00.txt`, `tileset_group_0.txt`, 
 `pipe_tiles_0.txt`, etc.) specify one map16 tile and have this general format:
 
 `TTTT: AAA { EEE C XYP  EEE C XYP  EEE C XYP  EEE C XYP }`
@@ -168,13 +168,21 @@ no x flip, y flip or priority set.
 Here are a few more lines from `page_00.txt`, just so you can see a bit more of the format:
 
 ```003C: 03C { 0A0 7 --p  0A2 7 --p  0A1 7 --p  0A3 7 --p }
+
 003D: 03D { 0A2 7 --p  0A2 7 --p  0A3 7 --p  0A3 7 --p }
+
 003E: 03E { 0A2 7 --p  0A4 7 --p  0A3 7 --p  0A5 7 --p }
+
 003F: 03F { 194 2 ---  192 2 ---  195 2 ---  193 2 --- }
+
 0040: 040 { 1C0 2 ---  1D0 2 ---  195 2 ---  193 2 --- }
+
 0041: 041 { 194 2 ---  192 2 ---  1C0 2 x--  1D0 2 x-- }
+
 0042: 042 { 185 2 ---  192 2 ---  195 2 ---  193 2 --- }
+
 0043: 043 { 194 2 ---  192 2 ---  185 2 x--  193 2 --- }
+
 0044: 044 { 192 2 -y-  194 2 -y-  193 2 -y-  195 2 -y- }
 ```
 
@@ -224,3 +232,5 @@ tiles (the diagonal pipe tiles), the 8x8 tiles for all other tileset groups for 
 - Page files within a directory are parsed in order of their hexadecimal number, going from lowest to highest
 - The program is very strict about whitespace and format in order to prevent any "artificial" changes to files, but it should give you detailed error messages if 
 you mess up the format on accident
+- The program now allows arbitrary amounts of blank lines between individual 16x16 tile specifications and will insert one blank line between each when 
+converting from the binary map16 format in order to prevent git from throwing merge conflicts when two commits from different branches alter neighboring tiles
